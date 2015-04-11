@@ -33,3 +33,21 @@ var path = __dirname+'/sample-images/blue-bottle-coffee.jpg';
     console.log('Real time spent: '+(new Date() - timeStarted) + ' ms');
   });
 })();
+
+(function () {
+    var opt, timeStarted = new Date;
+    im.crop(opt = {
+        srcPath: path,
+        dstPath: 'cropped3.jpg',
+        width: 90,
+        height: 30,
+        left: 10,
+        top: 10,
+        gravity: "None",
+        quality: 1
+    }, function (err, stdout, stderr){
+        if (err) return console.error(err.stack || err);
+        console.log('crop(',opt,') ->', stdout);
+        console.log('Real time spent: '+(new Date() - timeStarted) + ' ms');
+    });
+})();

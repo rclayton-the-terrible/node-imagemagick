@@ -322,9 +322,10 @@ exports.crop = function (options, callback) {
         args = args.concat([
           '-resize', resizeTo,
           '-gravity', dGravity,
-          '-crop', ''+t.opt.width + 'x' + t.opt.height + '+0+0',
+          '-crop', ''+t.opt.width + 'x' + t.opt.height + '+' + t.opt.top + '+' + t.opt.left,
           '+repage'
         ]);
+        console.log("ARGS: ", args);
         ignoreArg = false;
       }
     })
@@ -344,6 +345,8 @@ exports.resizeArgs = function(options) {
     format: 'jpg',
     progressive: false,
     colorspace: null,
+    left: 0,
+    top: 0,
     width: 0,
     height: 0,
     strip: true,
